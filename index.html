@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/auth-style.css" />
+  </head>
+  <body>
+    <div class="md-stepper-horizontal orange">
+      <div class="md-step" id="step-1">
+        <div class="md-step-circle"><span>1</span></div>
+        <div class="md-step-title">Log in</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+      <div class="md-step" id="step-2">
+        <div class="md-step-circle"><span>2</span></div>
+        <div class="md-step-title">Sign Up</div>
+
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+    </div>
+
+    <div class="screens">
+      <!-- Screen 1 -->
+      <div class="screen" id="screen-1">
+        <div class="container mt-4">
+          <div class="row mx-0">
+            <div class="col-12 text-center">
+              <h3>Log-In</h3>
+            </div>
+          </div>
+          <div class="row mx-0 mt-4 d-flex justify-content-center">
+            <div class="col-5 mx-0 mt-3 px-5">
+              <form>
+                <div class="mb-3">
+                  <label for="logInInputEmail" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="logInInputEmail"
+                    aria-describedby="logInEmailHelp"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="logInInputPassword" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="logInInputPassword"
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning"
+                      id="btnLogInSubmit"
+                    >
+                      Log In
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen 2 -->
+      <div class="screen" id="screen-2">
+        <div class="container mt-4">
+          <div class="row mx-0">
+            <div class="col-12 text-center">
+              <h3>Sign-Up</h3>
+            </div>
+          </div>
+          <div class="row mx-0 mt-4 d-flex justify-content-center">
+            <div class="col-5 mx-0 mt-3 px-5">
+              <form>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    aria-label="Username"
+                    id="txtUserName"
+                  />
+                </div>
+
+                <select
+                  class="form-select mb-4"
+                  aria-label="Default select example"
+                  id="selectUserProfile"
+                >
+                  <option value="0">Choose the profile</option>
+                  <option value="1">Student</option>
+                  <option value="2">Moderator</option>
+                </select>
+
+                <div class="mb-3">
+                  <label for="singUpInputEmail" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="singUpInputEmail"
+                    aria-describedby="signUpEmailHelp"
+                  />
+                  <div id="signUpEmailHelp" class="form-text">
+                    We'll never share your email with anyone else.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="signUpInputPassword" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="signUpInputPassword"
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-12 text-center">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning"
+                      id="btnSignUpSubmit"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Storing current user -->
+    <a href="" id="switchToClassesPanel"></a>
+    <a href="" id="switchToQuizApp"></a>
+
+    <a
+      data-bs-toggle="modal"
+      data-bs-target="#classJoinModal"
+      id="joinClassModalAnchor"
+    ></a>
+
+    <!-- Modal for joining class-->
+    <div
+      class="modal fade"
+      id="classJoinModal"
+      tabindex="-1"
+      aria-labelledby="classJoinModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <input type="hidden" id="hfClassJoinId" value="" />
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="classJoinModalLabel">
+              Join Class
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row mx-0 mt-3">
+              <div class="col-6">Class names:</div>
+              <div class="col-6">
+                <select id="ddlClasses" class="form-select"></select>
+              </div>
+            </div>
+
+            <div class="row mx-0 mt-3">
+              <div class="col-6">
+                <label for="joinClassPassword">Password:</label>
+              </div>
+              <div class="col-6">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="joinClassPassword"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-warning"
+              id="btnClassModalJoin"
+            >
+              Join
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-warning"
+              data-bs-dismiss="modal"
+              id="btnClassJoinModalClose"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/auth-script.js"></script>
+  </body>
+</html>
